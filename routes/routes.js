@@ -6,5 +6,5 @@ router.get("/",apiProducts.home)
 router.get("/api",apiProducts.home)
 router.get("/api/products",apiProducts.home)
 router.get("/api/producers",apiProducts.getProducers)
-/* router.post("/api/products/") */
+router.post("/api/products", apiProducts.searchProduct)
 module.exports = router;
