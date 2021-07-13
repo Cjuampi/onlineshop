@@ -17,7 +17,8 @@ const product = {
         }
     },
     searchProduct : async(req, res)=>{
-        let findW = req.body.findword
+        let findW = req.params.word
+        /* console.log(req.params.word) */
         const regex = new RegExp(findW, 'i')  //i mayusculas y minusculas
         try{
             let data = await productModel.find( 
