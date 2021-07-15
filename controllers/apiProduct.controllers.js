@@ -24,10 +24,20 @@ const product = {
             let data = await productModel.find( 
                 {$or: 
                     [
-                        {"producer.producerName": {$regex: regex}},
+                        {producerName: {$regex: regex}},
                         {title: {$regex: regex}}
                     ]
                 })
+            res.status(200).json(data)
+        }catch(err){
+            console.error(err)
+        }
+    },
+    getProduct : async(req, res)=>{
+        let findId = req.params.id
+        console.log(findId)
+        try{
+            let data = await productModel.find({idProduct: findId})
             res.status(200).json(data)
         }catch(err){
             console.error(err)
