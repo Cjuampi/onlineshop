@@ -129,7 +129,7 @@ const Home = () =>{
                 <input type="submit" value="Enviar" />
             </form>
             <TableContainer component={Paper}>
-            <Table>
+            <Table >
               <TableHead>
                 <TableRow>
                   <TableCell size='small'></TableCell>

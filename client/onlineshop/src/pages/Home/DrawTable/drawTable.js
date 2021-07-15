@@ -12,10 +12,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-
+import Rating from '@material-ui/lab/Rating';
 
 const DrawTable = (props) =>{
-  console.log('props', props.data)
+  /* console.log('props', props.data) */
   const [open, setOpen] = React.useState(false);
 /*   const useStyles = makeStyles((theme) => ({
     root: {
@@ -55,14 +55,18 @@ const DrawTable = (props) =>{
   return (
     <>
       <TableRow  >
-        <TableCell>
+        <TableCell padding="none">
           <IconButton aria-label="expand row" size="small" onClick={() => setOpen(!open)}>
             {open ? <KeyboardArrowUpIcon /> : <KeyboardArrowDownIcon />}
           </IconButton>
         </TableCell>
         <TableCell id={props.data.idProduct} onClick={props.open} >{props.data.title} </TableCell>
-        <TableCell>{props.data.relevance}</TableCell>
-        <TableCell>{props.data.price}</TableCell>
+        <TableCell padding="none" >
+          <Box pt="0px" pb ="0px" mb = "0px" component="fieldset"  borderColor="transparent">
+            <Rating name="read-only" value={props.data.relevance} readOnly  size="small" />
+          </Box>
+          </TableCell>
+        <TableCell  align="right" >{props.data.price}</TableCell>
       </TableRow>
       <TableRow>
         <TableCell style={{ paddingBottom: 0, paddingTop: 0, width:'100%' }} colSpan={10}>
