@@ -123,7 +123,7 @@ const Home = () =>{
     }
     const styles = makeStyles((theme) => ({
         tableRow:{
-         background:'black',
+         background:'#023e8a',
          marginTop:'20',
         },
         cells:{
