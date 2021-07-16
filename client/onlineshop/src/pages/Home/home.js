@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from 'axios'
 /* import DrawTable from './DrawTable/drawTable'; */
+import { withStyles, makeStyles } from '@material-ui/core/styles';
 import Pagination from '../../components/Pagination/pagination'
 
 import Table from '@material-ui/core/Table';
@@ -10,8 +11,8 @@ import TableContainer from '@material-ui/core/TableContainer';
 import TableHead  from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
-
 import Row from './DrawTable/drawTable'
+import './home.css'
 
 const Home = () =>{
     const [wordBoxTmp, setWordBoxTmp] = useState('')
@@ -120,22 +121,30 @@ const Home = () =>{
             return <Row key={index} data={row} open={handleOpenRow}/>
         })  
     }
-
+    const styles = makeStyles((theme) => ({
+        tableRow:{
+         background:'black',
+         marginTop:'20',
+        },
+        cells:{
+            color: 'white',
+        }
+       }));
+      const classes = styles();
     return(
         <div>
             <form onSubmit = {handleSubmit} >
-                <label > Buscar: </label>
                 <input type="text" id="findword" name="findword" onChange={onChangeWord}/>
-                <input type="submit" value="Enviar" />
+                <input type="submit" value="Buscar" />
             </form>
             <TableContainer component={Paper}>
             <Table >
               <TableHead>
-                <TableRow>
+                <TableRow className={classes.tableRow}>
                   <TableCell size='small'></TableCell>
-                  <TableCell onClick={ordAsc} id="title">Nombre</TableCell>
-                  <TableCell onClick={ordAsc} id="relevance">Relevancia</TableCell>
-                  <TableCell onClick={ordAsc} id="price">Precio</TableCell>
+                  <TableCell className={classes.cells} onClick={ordAsc} id="title">Nombre</TableCell>
+                  <TableCell className={classes.cells} onClick={ordAsc} id="relevance">Relevancia</TableCell>
+                  <TableCell className={classes.cells} onClick={ordAsc} id="price">Precio€</TableCell>
                 </TableRow>
               </TableHead>
               <TableBody>

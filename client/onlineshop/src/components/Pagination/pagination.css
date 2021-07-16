@@ -1,7 +1,17 @@
 ul {
+    display: flex;
     list-style-type: none;
+    padding:0;
+}
+li{
+    margin-right: 5px;
 }
 
-ul li{
-    display: inline;
+nav {
+    display: flex;
+    justify-content: center;
+}
+
+a:link {
+    text-decoration: none;
   }

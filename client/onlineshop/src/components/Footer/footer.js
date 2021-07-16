@@ -1,9 +1,8 @@
 import React from 'react';
-
+import './footer.css'
 const Footer = () => {
     return(
         <footer>
-            <p>El footer</p>
         </footer>
     );
 } 
